@@ -13,10 +13,8 @@ import type {
 } from '@wagmi/core/internal'
 import type {
   WriteContractData,
-  WriteContractMutateOptions,
   WriteContractVariables,
 } from '@wagmi/core/query'
-import { computed } from 'vue'
 import type {
   Abi,
   Account,
@@ -27,12 +25,13 @@ import type {
 } from 'viem'
 import type { WriteContractParameters as viem_WriteContractParameters } from 'viem/actions'
 
+import type { UseMutationParameters } from '../../utils/query.js'
 import { useChainId } from '../useChainId.js'
 import { useConfig } from '../useConfig.js'
 import {
   type UseWriteContractParameters,
-  type UseWriteContractReturnType as wagmi_UseWriteContractReturnType,
   useWriteContract,
+  type UseWriteContractReturnType as wagmi_UseWriteContractReturnType,
 } from '../useWriteContract.js'
 
 type stateMutability = 'nonpayable' | 'payable'
@@ -84,13 +83,18 @@ export type CreateUseWriteContractReturnType<
         address
       >,
       options?:
-        | WriteContractMutateOptions<
-            abi2,
-            name,
-            args,
-            config,
-            chainId,
-            name,
+        | UseMutationParameters<
+            WriteContractData,
+            WriteContractErrorType,
+            WriteContractVariables<
+              abi2,
+              name,
+              args,
+              config,
+              chainId,
+              // use `functionName` to make sure it's not union of all possible function names
+              name
+            >,
             context
           >
         | undefined,
@@ -116,13 +120,18 @@ export type CreateUseWriteContractReturnType<
         address
       >,
       options?:
-        | WriteContractMutateOptions<
-            abi2,
-            name,
-            args,
-            config,
-            chainId,
-            name,
+        | UseMutationParameters<
+            WriteContractData,
+            WriteContractErrorType,
+            WriteContractVariables<
+              abi2,
+              name,
+              args,
+              config,
+              chainId,
+              // use `functionName` to make sure it's not union of all possible function names
+              name
+            >,
             context
           >
         | undefined,
