@@ -155,7 +155,7 @@
       },
       "packages/vue": {
         "entry": [
-          "src/exports/{actions,chains,connectors,index,nuxt,query}.ts!",
+          "src/exports/{actions,chains,codegen,connectors,index,nuxt,query}.ts!",
           "src/exports/actions/experimental.ts!"
         ],
         "ignore": [

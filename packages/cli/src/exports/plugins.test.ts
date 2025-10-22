@@ -16,6 +16,7 @@ test('exports', () => {
       "react",
       "routescan",
       "sourcify",
+      "vue",
     ]
   `)
 })
