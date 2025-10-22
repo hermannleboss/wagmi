@@ -26,4 +26,6 @@ export { type ReactConfig, react } from '../plugins/react.js'
 
 export { type RoutescanConfig, routescan } from '../plugins/routescan.js'
 
+export { type VueConfig, vue } from '../plugins/vue.js'
+
 export { type SourcifyConfig, sourcify } from '../plugins/sourcify.js'

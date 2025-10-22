@@ -12,7 +12,7 @@
     "build": "pnpm run clean && pnpm run build:esm+types",
     "build:esm+types": "tsc --project tsconfig.build.json --outDir ./dist/esm --declaration --declarationMap --declarationDir ./dist/types",
     "check:types": "tsc --noEmit",
-    "clean": "rm -rf dist tsconfig.tsbuildinfo actions chains connectors nuxt query",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo actions chains codegen connectors nuxt query",
     "test:build": "publint --strict && attw --pack --ignore-rules cjs-resolves-to-esm"
   },
   "files": [
@@ -23,6 +23,7 @@
     "!src/**/*.test-d.ts",
     "/actions",
     "/chains",
+    "/codegen",
     "/connectors",
     "/nuxt",
     "/query"
@@ -49,6 +50,10 @@
       "types": "./dist/types/exports/chains.d.ts",
       "default": "./dist/esm/exports/chains.js"
     },
+    "./codegen": {
+      "types": "./dist/types/exports/codegen.d.ts",
+      "default": "./dist/esm/exports/codegen.js"
+    },
     "./connectors": {
       "types": "./dist/types/exports/connectors.d.ts",
       "default": "./dist/esm/exports/connectors.js"
@@ -70,6 +75,9 @@
       ],
       "chains": [
         "./dist/types/exports/chains.d.ts"
+      ],
+      "codegen": [
+        "./dist/types/exports/codegen.d.ts"
       ],
       "connectors": [
         "./dist/types/exports/connectors.d.ts"
